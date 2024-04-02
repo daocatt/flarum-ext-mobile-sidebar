@@ -1,0 +1,220 @@
+@media (max-width: 767.98px){
+    .App.affix{
+
+        .App-drawer{
+            // .Header-title{
+            //     position: fixed;
+            //     top: 0;
+            //     left: calc(~"(100vw)/2 - 60px");
+            //     transform: translateX(calc(~"6px + var(--drawer-width)"));
+            //     z-index: 9999;
+            //     visibility: visible;
+            //     width: 120px;
+            // }
+        }
+        .App-content{
+            transform: none;
+            transition: transform .4s;
+        }
+        &.drawerOpen{
+            .App-content{
+                transform: translateX(var(--drawer-width));
+                transition: transform .4s;
+            }
+        }
+        .IndexPage-nav{
+
+            .App-primaryControl{
+                position: initial !important;
+                width: 100%;
+                right: initial;
+                margin-bottom: 15px !important;
+                .Button{
+                    display: block;
+                    width: 100%;
+                    background: var(--button-bg) !important;
+                    .Button-icon{
+                        display: none;
+                    }
+                    .Button-label{
+                        display:block;
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            &.sideNav{
+                position: fixed;
+                top:0;
+                right:0;
+                z-index: 9999;
+                margin:0;
+
+                > ul{
+                    background: var(--header-bg);
+                    width: var(--drawer-width);
+                    position: fixed;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    box-shadow: 0 2px 6px var(--shadow-color);
+                    transform: translateX(calc(~"6px + var(--drawer-width)"));
+                    transition: transform .2s;
+                    z-index: var(--zindex-modal);
+
+                    li.item-nav{
+                        .Dropdown{
+                            &.App-titleControl{
+                                position:relative !important;
+                                display: block;
+                                width:100%;
+                                margin-left: 0;
+                                left: 0;
+
+                                .Dropdown-toggle.Button{
+                                    display:none;
+                                }
+                            }
+                            .Dropdown-menu{
+                                bottom: auto;
+                                top: 0;
+                                display: block;
+                                position: relative;
+                                z-index: 9999;
+                                visibility: visible;
+                                margin: 0;
+                                max-height: 100vh;
+                                transform: none;
+                                box-shadow: none;
+                                padding-bottom: 0px !important;
+                            }
+                        }
+                    }
+                }
+                
+                .sidebaricon{
+                    button{
+                        float: none;
+                        height: var(--header-height-phone);
+                        width: auto;
+                        box-shadow: none !important;
+                        background: transparent !important;
+                        padding: 13px !important;
+                        margin: 0px !important;
+                        border: none;
+                        font-size: 16px;
+                        .Button-icon{
+                            font-size: 16px;
+                            transform: rotateY(180deg);
+                        }
+                        .Button-label{
+                            display:none;
+                        }
+                    }
+                }
+                
+                &.sideNavOpen{
+                    > ul{
+                        transform: none !important;
+                        padding:10px;
+                        z-index: 9999;
+                        
+                    }
+                }
+            }
+        
+        }
+
+        .Navigation{
+            &.App-backControl{
+                
+                .Navigation-drawer{
+                    &:before{
+                        font-family: "Font Awesome 6 Free";
+                        // font-weight: 700;
+                        content: "\f086";
+                        position:absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size:18px;
+                    }
+                    i.icon{
+                        display:none;
+                    }
+                }
+            }
+        }
+
+        .Header-primary{
+            padding-bottom:15px;
+            border-bottom: 1px solid #eee;
+
+            .App-primaryControl{
+                position: relative !important;
+                margin-bottom:10px !important;
+                >.Button{
+                    display:flex;
+                    background: var(--button-primary-bg) !important;
+                    .Button-icon{
+                        margin-right:7px;
+                    }
+                    .Button-label{
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .Header-secondary{
+            .item-search{
+                display:none;
+            }
+            .item-newDiscussion{
+                display:none;
+            }
+        }
+        
+        .App-titleControl{
+        }
+        .App-backControl{}
+    }
+
+    .Composer{
+        .App-primaryControl{}
+        .App-titleControl{}
+        .App-backControl{}
+    }
+
+}
+@media (min-width: 768px){
+    .IndexPage-nav.sideNav{
+        .sidebaricon{
+            display:none;
+        }
+    }
+    .Header-primary{
+        .item-search{
+            display:none;
+        }
+        .item-newDiscussion{
+            display:none;
+        }
+    }
+
+    .Header-secondary{
+        .item-newDiscussion{
+            margin: 0 10px;
+            .Button{
+                padding: 10px 15px;
+            }
+            .Button-icon{
+                display: block;
+                margin-right:0;
+            }
+            .Button-label{
+                display:none;
+            }
+        }
+    }
+}

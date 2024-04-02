@@ -1,0 +1,50 @@
+{
+  "name": "gtdxyz/flarum-ext-mobile-sidebar",
+  "description": "",
+  "type": "flarum-extension",
+  "license": "MIT",
+  "homepage": "https://dev.gtd.xyz/",
+  "keywords": [
+    "flarum",
+    "extension"
+  ],
+  "authors": [
+    {
+      "name": "GTD",
+      "email": "dev@gtd.xyz",
+      "homepage": "https://dev.gtd.xyz/",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "source": "https://github.com/daocatt/flarum-ext-mobile-sidebar",
+    "issues": "https://github.com/daocatt/flarum-ext-mobile-sidebar"
+  },
+  "require": {
+    "flarum/core": "^1.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gtdxyz\\MSidebar\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "flarum-extension": {
+      "title": "MSidebar",
+      "category": "feature",
+      "info": {
+        "website": "https://dev.gtd.xyz/",
+        "support": "https://github.com/daocatt/flarum-ext-mobile-sidebar/discussions"
+      },
+      "icon": {
+        "name": "fas fa-bars",
+        "color": "#ffffff",
+        "backgroundColor": "#232323",
+        "backgroundSize": "cover",
+        "backgroundPosition": "center"
+      }
+    }
+  }
+}
