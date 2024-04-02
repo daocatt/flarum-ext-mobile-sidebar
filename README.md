@@ -17,5 +17,5 @@ php flarum assets:publish
 ###Install
 
 ```
-composer install gtdxyz/flarum-ext-mobile-sidebar
+composer require gtdxyz/flarum-ext-mobile-sidebar
 ```
