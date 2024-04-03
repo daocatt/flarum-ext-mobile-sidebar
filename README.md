@@ -7,14 +7,14 @@ Change Flarum mobile sidebar position.
 - Change mobile sidebar style
 
 
-###Need to install fontawesome v6.
+### Need to install fontawesome v6.
 
 ```
 composer require blomstra/fontawesome:"*"
 php flarum assets:publish
 ```
 
-###Install
+### Install
 
 ```
 composer require gtdxyz/flarum-ext-mobile-sidebar
