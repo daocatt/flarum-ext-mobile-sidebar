@@ -22,6 +22,33 @@
                 transition: transform .4s;
             }
         }
+        .App-navigation{
+            .sidebaricon{
+                position: fixed;
+                right: 0px;
+                button{
+                    float: none;
+                    height: var(--header-height-phone);
+                    width: auto;
+                    box-shadow: none !important;
+                    background: transparent !important;
+                    padding: 13px !important;
+                    margin: 0px !important;
+                    border: none;
+                    font-size: 16px;
+                    color: var(--header-control-color) !important;
+                    .Button-icon{
+                        font-size: 16px;
+                        transform: rotateY(180deg);
+                    }
+                    .Button-label{
+                        display:none;
+                    }
+                }
+            }
+            
+            
+        }
         .IndexPage-nav{
 
             .App-primaryControl{
@@ -49,14 +76,15 @@
                 right:0;
                 z-index: 9999;
                 margin:0;
-
+                // display: none;
                 > ul{
                     background: var(--header-bg);
                     width: var(--drawer-width);
                     position: fixed;
                     right: 0;
                     top: 0;
-                    bottom: 0;
+                    bottom: auto;
+                    height: 100vh;
                     box-shadow: 0 2px 6px var(--shadow-color);
                     transform: translateX(calc(~"6px + var(--drawer-width)"));
                     transition: transform .2s;
@@ -91,29 +119,9 @@
                         }
                     }
                 }
-                
-                .sidebaricon{
-                    button{
-                        float: none;
-                        height: var(--header-height-phone);
-                        width: auto;
-                        box-shadow: none !important;
-                        background: transparent !important;
-                        padding: 13px !important;
-                        margin: 0px !important;
-                        border: none;
-                        font-size: 16px;
-                        .Button-icon{
-                            font-size: 16px;
-                            transform: rotateY(180deg);
-                        }
-                        .Button-label{
-                            display:none;
-                        }
-                    }
-                }
-                
+
                 &.sideNavOpen{
+                    // display: block;
                     > ul{
                         transform: none !important;
                         padding:10px;
@@ -121,6 +129,7 @@
                         
                     }
                 }
+                
             }
         
         }
@@ -180,15 +189,24 @@
         .App-backControl{}
     }
 
-    .Composer{
-        .App-primaryControl{}
-        .App-titleControl{}
-        .App-backControl{}
+    .Composer:not(.minimized){
+        bottom: 0 !important;
+        top: auto !important;
+        height: 450px !important;
+    }
+    .Composer.minimized{
+        background: #193d90;
+
+        .ComposerBody-header{
+            h3{
+                color:#fff;
+            }
+        }
     }
 
 }
 @media (min-width: 768px){
-    .IndexPage-nav.sideNav{
+    .App-navigation{
         .sidebaricon{
             display:none;
         }

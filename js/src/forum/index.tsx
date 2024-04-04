@@ -19,6 +19,10 @@ app.initializers.add('flarum-mobile-sidebar', function () {
         if (app.session.user) {
           app.composer.load(DiscussionComposer, { user: app.session.user });
           app.composer.show();
+
+          if (app.drawer.isOpen()) {
+            app.drawer.hide();
+          }
   
           return resolve(app.composer);
         } else {
@@ -64,15 +68,16 @@ app.initializers.add('flarum-mobile-sidebar', function () {
 
   extend(IndexPage.prototype, 'view', function (items) {
 
-      this.appElement = document.getElementsByClassName('IndexPage-nav')[0];
+      // this.appElement = document.getElementsByClassName('IndexPage-nav')[0];
       
       this.isOpen = function(){
-        return this.appElement.classList.contains('sideNavOpen');
+        return document.getElementsByClassName('IndexPage-nav')[0].classList.contains('sideNavOpen');
       }
 
       this.show = function() {
 
-        this.appElement.classList.add('sideNavOpen');
+        document.getElementsByClassName('IndexPage-nav')[0].classList.add('sideNavOpen');
+
         this.$backdrop = $('<div/>').addClass('drawer-backdrop fade')
           .css('z-index','8888')
           .appendTo('body')
@@ -84,7 +89,7 @@ app.initializers.add('flarum-mobile-sidebar', function () {
       }
 
       this.hide = function() {
-        this.appElement.classList.remove('sideNavOpen');
+        document.getElementsByClassName('IndexPage-nav')[0].classList.remove('sideNavOpen');
         this.$backdrop?.remove?.();
       }
 
@@ -95,8 +100,8 @@ app.initializers.add('flarum-mobile-sidebar', function () {
         }
       });
 
-      if($('.IndexPage-nav.sideNav').find('.sidebaricon').length < 1){
-        $('.IndexPage-nav.sideNav').prepend('<div id="sidebaricon" class="sidebaricon"></div>');
+      if($('#app-navigation').find('.sidebaricon').length < 1){
+        $('#app-navigation').prepend('<div id="sidebaricon" class="sidebaricon"></div>');
         if(document.getElementById('sidebaricon')){
           m.mount(document.getElementById('sidebaricon'), {view: () => <Button icon="fas fa-stream" onclick={(e: MouseEvent) => {
             e.stopPropagation();
