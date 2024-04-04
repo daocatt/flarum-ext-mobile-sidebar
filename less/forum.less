@@ -191,9 +191,14 @@
     }
 
     .Composer:not(.minimized){
-        top: inherit !important;
+        position: -webkit-fixed;
+        // top: auto !important;
         bottom: 0 !important;
         height: 420px !important;
+
+        top: 100vh !important;
+        transform: translateY(-100%);
+
         // max-height: 100vh;
     }
 
