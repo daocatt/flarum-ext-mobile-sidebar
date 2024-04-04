@@ -1,17 +1,18 @@
 @media (max-width: 767.98px){
-    .App.affix{
 
-        .App-drawer{
-            // .Header-title{
-            //     position: fixed;
-            //     top: 0;
-            //     left: calc(~"(100vw)/2 - 60px");
-            //     transform: translateX(calc(~"6px + var(--drawer-width)"));
-            //     z-index: 9999;
-            //     visibility: visible;
-            //     width: 120px;
-            // }
+    .IndexPage-nav.sideNav{
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 9999;
+        margin: 0;
+
+        >ul li.item-nav .Dropdown.App-titleControl .Dropdown-toggle.Button{
+            display: none !important;
         }
+    }
+    .App{
+
         .App-content{
             transform: none;
             transition: transform .4s;
