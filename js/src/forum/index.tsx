@@ -8,6 +8,8 @@ import IndexPage from 'flarum/forum/components/IndexPage';
 import HeaderSecondary from 'flarum/common/components/HeaderSecondary';
 import HeaderPrimary from 'flarum/common/components/HeaderPrimary';
 import Search from 'flarum/forum/components/Search';
+
+import SidebarButton from './components/SidebarButton';
 import type Mithril from 'mithril';
 
 app.initializers.add('flarum-mobile-sidebar', function () {
@@ -68,50 +70,44 @@ app.initializers.add('flarum-mobile-sidebar', function () {
 
   extend(IndexPage.prototype, 'view', function (items) {
 
+      
+
       // this.appElement = document.getElementsByClassName('IndexPage-nav')[0];
       
-      this.isOpen = function(){
-        return document.getElementsByClassName('IndexPage-nav')[0].classList.contains('sideNavOpen');
-      }
+      // this.isOpen = function(){
+      //   return document.getElementsByClassName('IndexPage-nav')[0].classList.contains('sideNavOpen');
+      // }
 
-      this.show = function() {
+      // this.show = function() {
 
-        document.getElementsByClassName('IndexPage-nav')[0].classList.add('sideNavOpen');
+      //   document.getElementsByClassName('IndexPage-nav')[0].classList.add('sideNavOpen');
 
-        this.$backdrop = $('<div/>').addClass('drawer-backdrop fade')
-          .css('z-index','8888')
-          .appendTo('body')
-          .on('click', this.hide.bind(this));
+      //   this.$backdrop = $('<div/>').addClass('drawer-backdrop fade')
+      //     .css('z-index','8888')
+      //     .appendTo('body')
+      //     .on('click', this.hide.bind(this));
 
-        requestAnimationFrame(() => {
-          this.$backdrop.addClass('in');
-        });
-      }
+      //   requestAnimationFrame(() => {
+      //     this.$backdrop.addClass('in');
+      //   });
+      // }
 
-      this.hide = function() {
-        document.getElementsByClassName('IndexPage-nav')[0].classList.remove('sideNavOpen');
-        this.$backdrop?.remove?.();
-      }
+      // this.hide = function() {
+      //   document.getElementsByClassName('IndexPage-nav')[0].classList.remove('sideNavOpen');
+      //   this.$backdrop?.remove?.();
+      // }
 
-      document.getElementById('content').addEventListener('click', (e) => {
-        if (this.isOpen()) {
-          e.preventDefault();
-          this.hide();
-        }
-      });
+      // document.getElementById('content').addEventListener('click', (e) => {
+      //   if (this.isOpen()) {
+      //     e.preventDefault();
+      //     this.hide();
+      //   }
+      // });
 
       if($('#app-navigation').find('.sidebaricon').length < 1){
         $('#app-navigation').prepend('<div id="sidebaricon" class="sidebaricon"></div>');
         if(document.getElementById('sidebaricon')){
-          m.mount(document.getElementById('sidebaricon'), {view: () => <Button icon="fas fa-stream" onclick={(e: MouseEvent) => {
-            e.stopPropagation();
-            if(!this.isOpen()){
-              this.show();
-            }else{
-              this.hide();
-            }
-            
-          }}>MENU</Button>})
+          m.mount(document.getElementById('sidebaricon'), {view: () => <SidebarButton></SidebarButton>})
         } 
       }
 
