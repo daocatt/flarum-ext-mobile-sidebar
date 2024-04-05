@@ -69,7 +69,7 @@ app.initializers.add('flarum-mobile-sidebar', function () {
   });
 
   extend(IndexPage.prototype, 'view', function (items) {
-    
+
       if($('#app-navigation').find('.sidebaricon').length < 1){
         $('#app-navigation').prepend('<div id="sidebaricon" class="sidebaricon"></div>');
         if(document.getElementById('sidebaricon')){
